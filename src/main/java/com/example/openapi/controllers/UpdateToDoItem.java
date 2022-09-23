@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.http.MediaType;
@@ -36,8 +37,17 @@ public class UpdateToDoItem {
             responses = {
                     @ApiResponse(
                             responseCode = "200",
-                            description = "Success Resposne",
-                            content = @Content(schema = @Schema(implementation = ToDoItem.class), mediaType = MediaType.APPLICATION_JSON_VALUE)
+                            description = "Success Response",
+                            content = @Content(
+                                    schema = @Schema(implementation = ToDoItem.class),
+                                    mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                    examples = {
+                                            @ExampleObject(name = "Success 1",
+                                                    value = "Object"),
+                                            @ExampleObject(name = "Success 2",
+                                                    value = "String")
+                                    }
+                            )
                     )
             }
     )
