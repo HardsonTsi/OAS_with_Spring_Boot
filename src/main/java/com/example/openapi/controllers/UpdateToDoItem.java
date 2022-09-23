@@ -53,10 +53,7 @@ public class UpdateToDoItem {
             },
             security = {
                     @SecurityRequirement(
-                            name = "Bearer",
-                            scopes = {
-
-                            }
+                            name = "Bearer"
                     )
             }
     )
