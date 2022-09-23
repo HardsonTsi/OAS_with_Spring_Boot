@@ -3,6 +3,7 @@ package com.example.openapi.controllers;
 import com.example.openapi.models.Customer;
 import com.example.openapi.models.ToDoItem;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,14 @@ public class UpdateToDoItem {
                     content = {
                             @Content(schema = @Schema(implementation = Customer.class))
                     }
-            )
+            ),
+            parameters = {
+                    @Parameter(
+                            name = "toDoItemId",
+                            description = "The path variable",
+                            example = "555"
+                    )
+            }
     )
     public ResponseEntity<Object> updateToDoItem(@PathVariable String toDoItemId,
                                                  @RequestBody ToDoItem toDoItem,
